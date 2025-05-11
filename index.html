@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analyse de phrase</title>
+</head>
+<body>
+  <h2>Analyse de phrase</h2>
+  <input type="text" id="sentenceInput" placeholder="Entrez une phrase se terminant par un point.">
+  <button onclick="analyzeSentence()">Analyser</button>
+  <p id="result"></p>
+
+  <script>
+    function analyzeSentence() {
+      const sentence = document.getElementById("sentenceInput").value;
+
+      let charCount = 0;
+      let wordCount = 1; // commence à 1 car on suppose des mots séparés par un seul espace
+      let vowelCount = 0;
+
+      const vowels = "aeiouAEIOU";
+
+      for (let i = 0; i < sentence.length; i++) {
+        charCount++;
+
+        if (sentence[i] === ' ') {
+          wordCount++;
+        }
+
+        if (vowels.includes(sentence[i])) {
+          vowelCount++;
+        }
+      }
+
+      // Affichage des résultats
+      document.getElementById("result").innerHTML =
+        "Nombre de caractères : " + charCount + "<br>" +
+        "Nombre de mots : " + wordCount + "<br>" +
+        "Nombre de voyelles : " + vowelCount;
+    }
+  </script>
+</body>
+</html>
